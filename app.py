@@ -9,6 +9,9 @@ from transformers import pipeline
 import nltk
 from nltk.corpus import stopwords
 from sentence_transformers import SentenceTransformer
+import os
+
+os.environ["HF_HOME"] = "/tmp/huggingface"
 
 # --- INITIALISATION DE NLTK ---
 try:
@@ -47,8 +50,8 @@ st.set_page_config(
 def load_sentiment_pipeline():
     sentiment_pipeline = pipeline(
         "sentiment-analysis",
-        # model="cardiffnlp/twitter-xlm-roberta-base-sentiment",
-        model="tblard/tf-allocine", # Pour streamlit cloud
+        model="cardiffnlp/twitter-xlm-roberta-base-sentiment",
+        # model="distilbert-base-uncased-finetuned-sst-2-english", # Pour streamlit cloud
         device=-1
     )
     bert_pipeline = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")

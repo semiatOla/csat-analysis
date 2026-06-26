@@ -6,3 +6,4 @@ scikit-learn
 transformers
 nltk
 sentence-transformers
+torch

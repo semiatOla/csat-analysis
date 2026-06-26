@@ -343,8 +343,8 @@ def render_analysis_dashboard(df_data, method_name, filename_suffix):
     
     if len(possible_csat_cols) > 0:
         csat_column_to_use = possible_csat_cols[0]
-        avg_csat_val = filtered_df[csat_column_to_use].mean()
-        kpi2.metric(f"{csat_column_to_use}", f"{avg_csat_val:.2f}")
+        avg_csat_val = filtered_df[csat_column_to_use].mean() *10
+        kpi2.metric(f"{csat_column_to_use}", f"{avg_csat_val:.2f}%")
     else:
         kpi2.write("Aucune colonne de score CSAT numérique détectée.")
         csat_column_to_use = None
@@ -353,7 +353,7 @@ def render_analysis_dashboard(df_data, method_name, filename_suffix):
         total_feedback = len(filtered_df)
         if total_feedback > 0:
             pos_ratio = (filtered_df['Sentiment'] == 'Positif').sum() / total_feedback * 100
-            kpi3.metric("Taux de Sentiments Positifs", f"{pos_ratio:.1f}%")
+            kpi3.metric("Taux de sentiments positifs", f"{pos_ratio:.1f}%")
 
     # Graphiques interactifs
     col_plot1, col_plot2 = st.columns(2)

@@ -37,7 +37,7 @@ STOPWORDS = list(FR_STOPWORDS | set(CUSTOM_STOPWORDS))
 
 # --- CONFIGURATION DE LA PAGE ---
 st.set_page_config(
-    page_title="Analyse de Feedback CSAT",
+    page_title="CSAT Analysis Dashboard",
     page_icon="🇫🇷",
     layout="wide"
 )

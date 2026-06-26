@@ -7,3 +7,4 @@ transformers
 nltk
 sentence-transformers
 torch
+torchvision

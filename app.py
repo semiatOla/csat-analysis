@@ -48,6 +48,7 @@ def load_sentiment_pipeline():
     sentiment_pipeline = pipeline(
         "sentiment-analysis",
         model="cardiffnlp/twitter-xlm-roberta-base-sentiment",
+        tokenizer="cardiffnlp/twitter-xlm-roberta-base-sentiment",
         device=-1
     )
     bert_pipeline = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")

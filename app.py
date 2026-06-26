@@ -52,7 +52,7 @@ def load_sentiment_pipeline():
         "sentiment-analysis",
         model="cardiffnlp/twitter-xlm-roberta-base-sentiment",
         # model="distilbert-base-uncased-finetuned-sst-2-english", # Pour streamlit cloud
-        force_download=True,
+        # force_download=True,
         device=-1
     )
     bert_pipeline = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")

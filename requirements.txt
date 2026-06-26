@@ -12,3 +12,4 @@ plotly
 scikit-learn
 nltk
 tiktoken
+openpyxl

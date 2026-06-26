@@ -171,7 +171,7 @@ if mode == "1. Traiter un nouveau fichier de feedback":
                         df_pipeline = df_pipeline[df_pipeline['Cleaned_Feedback'] != ""]
 
                     total_rows_after = len(df_pipeline)
-                    empty_rows_after = (df_pipeline['Cleaned_Feedback'] == "").sum()
+                    empty_rows_after = total_rows_before - total_rows_after
                     avg_len_after = df_pipeline['Cleaned_Feedback'].apply(len).mean()
 
                     # Affichage des statistiques avant/après
@@ -344,7 +344,7 @@ def render_analysis_dashboard(df_data, method_name, filename_suffix):
     if len(possible_csat_cols) > 0:
         csat_column_to_use = possible_csat_cols[0]
         avg_csat_val = filtered_df[csat_column_to_use].mean()
-        kpi2.metric(f"Score CSAT Moyen ({csat_column_to_use})", f"{avg_csat_val:.2f} / 5.0")
+        kpi2.metric(f"{csat_column_to_use}", f"{avg_csat_val:.2f}")
     else:
         kpi2.write("Aucune colonne de score CSAT numérique détectée.")
         csat_column_to_use = None
